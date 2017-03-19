@@ -86,6 +86,15 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
 
+    signingConfigs {
+        release {
+            keyAlias 'EcwidGallery'
+            keyPassword 'FR32BDE612b'
+            storeFile file('./../keystore_release.jks')
+            storePassword 'FR32BDE612a'
+        }
+    }
+
     defaultConfig {
         applicationId "com.ecwid_gallery"
         minSdkVersion 16
@@ -108,6 +117,7 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release
